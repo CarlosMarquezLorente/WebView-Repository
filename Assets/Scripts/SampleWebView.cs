@@ -17,7 +17,6 @@
  *    misrepresented as being the original software.
  * 3. This notice may not be removed or altered from any source distribution.
  */
-
 using System.Collections;
 using UnityEngine;
 #if UNITY_2018_4_OR_NEWER
@@ -27,11 +26,11 @@ using UnityEngine.UI;
 
 public class SampleWebView : MonoBehaviour
 {
-    public string Url;
+    public string url;
     public Text status;
     public Text statusError;
     WebViewObject webViewObject;
-    public Image image;
+    public RectTransform imageTransform;
 
     public void StartWebViewCoroutine()
     {
@@ -134,13 +133,11 @@ public class SampleWebView : MonoBehaviour
 
         //webViewObject.SetScrollbarsVisibility(true);
    
-        // webViewObject.SetMargins(0, 0, (int)image.rectTransform.rect.width, (int)image.rectTransform.rect.height);
         webViewObject.SetTextZoom(200);  // android only. cf. https://stackoverflow.com/questions/21647641/android-webview-set-font-size-system-default/47017410#47017410
         webViewObject.SetVisibility(true);
-        
+        webViewObject.SetMargins(15, 15, 15, 180);
 
-        webViewObject.LoadURL(Url);
-
+        webViewObject.LoadURL(url);
         yield break;
     }
 
