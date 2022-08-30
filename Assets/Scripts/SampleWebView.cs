@@ -72,31 +72,10 @@ public class SampleWebView : MonoBehaviour
             ld: (msg) =>
             {
                 Debug.Log(string.Format("CallOnLoaded[{0}]", msg));
-                webViewObject.EvaluateJS(@"
-                if (window && window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.unityControl) {
-                window.setToken = {
-                    call: function(msg) {
-                    window.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-                    eyJpZCI6IjYyMjA4Y2Q0OGNhNzViMD
-                    U2MjlkMjRkOSIsInVzZXJOYW1lIjoi
-                    amF2aXBva2VyMDA3IiwiaWF0IjoxNj
-                    UyMTc5NzcxLCJleHAiOjE2NTIxODMz
-                    NzF9.
-                    IeEhSIFWySfz6BeVjO5ioie2EgP_
-                    sxq9-emElrqZfCw');
-                    }
-                  }
-                }");
+                
                 webViewObject.EvaluateJS(@"
                 if (window) {
-                    window.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
-                    eyJpZCI6IjYyMjA4Y2Q0OGNhNzViMD
-                    U2MjlkMjRkOSIsInVzZXJOYW1lIjoi
-                    amF2aXBva2VyMDA3IiwiaWF0IjoxNj
-                    UyMTc5NzcxLCJleHAiOjE2NTIxODMz
-                    NzF9.
-                    IeEhSIFWySfz6BeVjO5ioie2EgP_
-                    sxq9-emElrqZfCw');
+                    window.document.querySelector('app-roulette').setUserToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMjA4Y2Q0OGNhNzViMDU2MjlkMjRkOSIsInVzZXJOYW1lIjoiamF2aXBva2VyMDA3IiwiaWF0IjoxNjUyMTc5NzcxLCJleHAiOjE2NTIxODMzNzF9.IeEhSIFWySfz6BeVjO5ioie2EgP_sxq9-emElrqZfCw';
                 }");
 
             }
