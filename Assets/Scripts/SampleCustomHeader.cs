@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 /// <summary>
 /// Example for Custom header features.
@@ -14,18 +11,7 @@ public class SampleCustomHeader : MonoBehaviour
 
     WebViewObject _webviewObject;
 
-    // Use this for initialization
-    void Start()
-    {
-    }
-	
-    // Update is called once per frame
-    void Update()
-    {
-		
-    }
-
-    void OnGUI()
+    private void OnGUI()
     {
         float h = Screen.height;
         if (GUI.Button(new Rect(.0f, h - BUTTON_HEIGHT, Screen.width, BUTTON_HEIGHT), "check for request header"))
